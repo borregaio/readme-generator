@@ -26,19 +26,22 @@ const questions = [
       message: 'Please write a short description of your project:',
     },
     {
-      type: 'input',
+      type: 'list',
       name: 'projectLicense',
       message: 'What kind of license should your project have?',
+      choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3-Clause', 'None'],
     },
     {
       type: 'input',
       name: 'installCommand',
       message: 'What command should be run to install dependencies?',
+      default: 'npm i',
     },
     {
       type: 'input',
       name: 'testCommand',
       message: 'What command should be run to run tests?',
+      default: 'npm test',
     },
     {
       type: 'input',
