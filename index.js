@@ -52,14 +52,32 @@ const questions = [
     }
   ];
 
-// function to write README file
-function writeToFile(fileName, data) {
-}
+// Use inquirer to prompt the questions
+inquirer.prompt(questions)
+  .then(data => {
+    const htmlContent = generateMarkdown(data)
+    ;
 
-// function to initialize program
-function init() {
+    // Write the HTML content to a file (e.g., userInfo.html)
+    fs.writeFile('README.md', htmlContent, (err) => {
+      if (err) {
+        console.error('Error writing HTML file:', err);
+      } else {
+        console.log('User information saved to README.md');
+      }
+    });
+  })
+  .catch(error => console.error('Error occurred:', error));
+  
 
-}
+// // function to write README file
+// function writeToFile(fileName, data) {
+// }
 
-// function call to initialize program
-init();
+// // function to initialize program
+// function init() {
+
+// }
+
+// // function call to initialize program
+// init();
