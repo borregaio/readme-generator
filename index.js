@@ -1,5 +1,4 @@
 const fs = require("fs");
-const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
@@ -9,21 +8,25 @@ const questions = [
       type: 'input',
       name: 'githubUsername',
       message: 'What is your GitHub username?',
+      validate: input => (input !== '') ? true : 'Username is required',
     },
     {
       type: 'input',
       name: 'emailAddress',
       message: 'What is your email address?',
+      validate: input => (input !== '') ? true : 'Email is required',
     },
     {
       type: 'input',
       name: 'projectName',
       message: 'What is your project\'s name?',
+      validate: input => (input !== '') ? true : 'Project name is required',
     },
     {
       type: 'input',
       name: 'projectDescription',
       message: 'Please write a short description of your project:',
+      validate: input => (input !== '') ? true : 'Description is required',
     },
     {
       type: 'list',
@@ -47,6 +50,7 @@ const questions = [
       type: 'input',
       name: 'userInstructions',
       message: 'What does the user need to know about using the repo?',
+      validate: input => (input !== '') ? true : 'Instructions are required',
     },
     {
       type: 'input',
