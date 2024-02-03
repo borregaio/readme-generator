@@ -1,4 +1,4 @@
-// function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
   return `
   # ${data.projectName} ![License: ${data.projectLicense}](https://img.shields.io/badge/License-${data.projectLicense.replace(/\s+/g, '_')}-blue)

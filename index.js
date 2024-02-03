@@ -2,7 +2,7 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// array of questions for user
+// Array of questions
 const questions = [
     {
       type: 'input',
@@ -65,26 +65,13 @@ inquirer.prompt(questions)
     const htmlContent = generateMarkdown(data)
     ;
 
-    // Write the HTML content to a file (e.g., userInfo.html)
+    // Write the user input to a README file
     fs.writeFile('README.md', htmlContent, (err) => {
       if (err) {
-        console.error('Error writing HTML file:', err);
+        console.error('Error writing README file:', err);
       } else {
-        console.log('User information saved to README.md');
+        console.log('Generating README...');
       }
     });
   })
   .catch(error => console.error('Error occurred:', error));
-  
-
-// // function to write README file
-// function writeToFile(fileName, data) {
-// }
-
-// // function to initialize program
-// function init() {
-
-// }
-
-// // function call to initialize program
-// init();
